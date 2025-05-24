@@ -36,6 +36,11 @@ public class UsuarioServicioImpl implements UsuarioServicio {
     }
 
     @Override
+    public List<Usuario> listarUsuariosPorLicoreria(Long licoreriaId) {
+        return usuarioRepo.findByLicoreriaId(licoreriaId);
+    }
+
+    @Override
     public Usuario obtenerPorUsername(String username) {
         return usuarioRepo.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
